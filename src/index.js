@@ -1,14 +1,17 @@
-// class new CountdownTimer({
-//   selector: '#timer-1',
-//   targetDate: new Date('Jul 17, 2019'),
-// });
-const clockface = document.querySelector('.timer')
+const refs = {  
+  days: document.querySelector('[data-value="days"]'),
+  hours: document.querySelector('[data-value="hours"]'),
+  mins: document.querySelector('[data-value="mins"]'),
+  secs: document.querySelector('[data-value="secs"]'),
+  clockface:document.querySelector('.timer')
+}
 
 class CountdownTimer {
     constructor({ onTick, targetDate, selector }) {
         this.onTick = onTick;
         this.targetDate = targetDate;
-        this.selector = selector;        
+        this.selector = selector;    
+        this.start();
     }
     start() {        
         setInterval(() => {            
@@ -37,14 +40,13 @@ const timer = new CountdownTimer({
     selector: '#timer-1',
     targetDate: new Date('Jul 17, 2021')
 });
-timer.start();
 
-function updateClockface({ days, hours, mins, secs }) {
-    clockface.textContent = `${days}:${hours}:${mins}:${secs}`;
-};
-
-
-
+function updateClockface({days, hours, mins, secs}){
+  refs.days.textContent = `${days}`
+  refs.hours.textContent = `${hours}`
+  refs.mins.textContent = `${mins}`
+  refs.secs.textContent = `${secs}`
+}
 
 
 

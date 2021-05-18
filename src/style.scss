@@ -1,0 +1,51 @@
+html,
+body {
+  height: 100%;
+}
+
+html {
+  background-image: url("./img/sample.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+body {
+  background-color: rgba(44, 62, 80, 0.6);
+  background-image: url("./img/pattern.png");
+  background-position: center;
+  background-repeat: repeat;
+  font-family: "Raleway", "Arial", sans-serif;
+  margin: 0;
+}
+
+.timer {
+  width: 100%;
+  margin-top: 12%;
+  font-family: sans-serif;
+  color: #fff;
+  display: inline-block;
+  font-weight: 100;
+  text-align: center;
+  font-size: 100px;
+}
+
+.field {
+  padding: 10px;
+  border-radius: 5px;
+  background: #56779e;
+  display: inline-block;
+}
+
+.value {
+  padding: 15px;
+  border-radius: 50px;
+  background: #080b33;
+  display: inline-block;
+}
+
+.label {
+  display: block;
+  padding-top: 5px;
+  font-size: 16px;
+}
