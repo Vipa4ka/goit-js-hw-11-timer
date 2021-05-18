@@ -19,7 +19,7 @@ class CountdownTimer {
             const deltaTime = this.targetDate - startTime;          
             const time = this.getTimerComponent(deltaTime);
             this.onTick(time);            
-        }, 1000);   
+        });   
     };
 
     getTimerComponent(time) {
