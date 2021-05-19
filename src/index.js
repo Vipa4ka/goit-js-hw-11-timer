@@ -1,16 +1,14 @@
-const refs = {  
-  days: document.querySelector('[data-value="days"]'),
-  hours: document.querySelector('[data-value="hours"]'),
-  mins: document.querySelector('[data-value="mins"]'),
-  secs: document.querySelector('[data-value="secs"]'),
-  clockface:document.querySelector('.timer')
-}
-
 class CountdownTimer {
-    constructor({ onTick, targetDate, selector }) {
-        this.onTick = onTick;
+    constructor({ targetDate, selector }) {        
         this.targetDate = targetDate;
-        this.selector = selector;    
+        this.selector = selector;
+        this.refs = {
+            days: document.querySelector('[data-value="days"]'),
+            hours: document.querySelector('[data-value="hours"]'),
+            mins: document.querySelector('[data-value="mins"]'),
+            secs: document.querySelector('[data-value="secs"]'),
+            clockface: document.querySelector('.timer'),
+        };
         this.start();
     }
     start() {        
@@ -18,7 +16,7 @@ class CountdownTimer {
             const startTime = Date.now();
             const deltaTime = this.targetDate - startTime;          
             const time = this.getTimerComponent(deltaTime);
-            this.onTick(time);            
+            this.updateClockface(time);            
         });   
     };
 
@@ -32,21 +30,21 @@ class CountdownTimer {
 
     pad(value) {
     return String(value).padStart(2, '0');
-    };     
+    };
+    updateClockface({days, hours, mins, secs}){
+        this.refs.days.textContent = `${days}`;
+        this.refs.hours.textContent =`${hours}`;
+        this.refs.mins.textContent =`${mins}`; 
+        this.refs.secs.textContent =`${secs}`; 
+    };
+
 };
 
-const timer = new CountdownTimer({
-    onTick: updateClockface,
+const timer = new CountdownTimer({    
     selector: '#timer-1',
     targetDate: new Date('Jul 17, 2021')
 });
 
-function updateClockface({days, hours, mins, secs}){
-  refs.days.textContent = `${days}`
-  refs.hours.textContent = `${hours}`
-  refs.mins.textContent = `${mins}`
-  refs.secs.textContent = `${secs}`
-}
 
 
 
